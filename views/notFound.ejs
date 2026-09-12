@@ -1,13 +1,76 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Página no encontrada</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-</head>
-<body class="container center-align">
-  <h3 class="red-text">404 - Página no encontrada</h3>
-  <p>La ruta <strong><%= url %></strong> no existe en este sitio.</p>
-  <a href="/" class="waves-effect waves-light btn">Volver al inicio</a>
-</body>
-</html>
+<%- include('partials/header', { title: '404 - Página no encontrada', url: '' }) %>
+<%- include('partials/navbar', { url: '' }) %>
+
+<main>
+    <!-- 404 Section -->
+    <section class="hero" style="min-height: 80vh; justify-content: center;">
+        <div class="container" style="text-align: center;">
+            <!-- 404 Grande -->
+            <h1 style="
+                font-size: 10rem;
+                background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-gold) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 1rem;
+                line-height: 1;
+                font-weight: 900;
+                letter-spacing: -3px;
+            ">404</h1>
+            
+            <!-- Título -->
+            <h2 style="color: var(--text-main); margin-bottom: 1rem;">
+                Portal Dimensional Cerrado
+            </h2>
+            
+            <!-- Descripción -->
+            <p style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                La ruta que intentas acceder no existe en nuestro universo Marvel. Se ha detectado un portal dimensional cerrado.
+            </p>
+            
+            <!-- URL Errónea -->
+            <div style="
+                background: rgba(51, 65, 85, 0.5);
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                padding: 1rem;
+                margin-bottom: 2rem;
+                font-family: 'Courier New', monospace;
+                word-break: break-all;
+            ">
+                <p style="color: var(--accent-gold); margin: 0;">
+                    <span style="color: var(--accent-red);">/</span><%= url %>
+                </p>
+            </div>
+            
+            <!-- Botones -->
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/" class="btn btn-primary">
+                    <i data-lucide="home"></i>
+                    Volver al Inicio
+                </a>
+                <a href="/marvel" class="btn btn-secondary">
+                    <i data-lucide="arrow-right"></i>
+                    Explorar Marvel
+                </a>
+            </div>
+            
+            <!-- Decoración -->
+            <div style="
+                margin-top: 3rem;
+                padding-top: 2rem;
+                border-top: 1px solid var(--border-color);
+            ">
+                <p style="color: var(--text-muted); margin: 0;">
+                    💫 El multiverso está confundido. Intenta con una ruta válida.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+
+<script>
+    lucide.createIcons();
+</script>

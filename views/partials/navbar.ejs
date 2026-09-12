@@ -1,0 +1,43 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <!-- Logo -->
+        <div class="navbar-logo">
+            <div class="logo-badge">
+                <span class="logo-text">MARVEL</span>
+                <span class="logo-subtitle">DB</span>
+            </div>
+        </div>
+        
+        <!-- Hamburger Menu (Móvil) -->
+        <div class="hamburger-menu" id="hamburguerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <!-- Links Navegación -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" class="nav-link <%= url === '/' ? 'active' : '' %>"><i data-lucide="home"></i> Inicio</a></li>
+            <li><a href="/about" class="nav-link <%= url === '/about' ? 'active' : '' %>"><i data-lucide="info"></i> Acerca de</a></li>
+            <li><a href="/contact" class="nav-link <%= url === '/contact' ? 'active' : '' %>"><i data-lucide="mail"></i> Contacto</a></li>
+            <li><a href="/marvel" class="nav-link <%= url === '/marvel' ? 'active' : '' %>"><i data-lucide="zap"></i> Marvel</a></li>
+            <li><a href="/admin" class="nav-link <%= url === '/admin' ? 'active' : '' %>"><i data-lucide="shield"></i> Admin</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    // Inicializar iconos
+    lucide.createIcons();
+    
+    // Toggle menu móvil
+    const hamburger = document.getElementById('hamburguerMenu');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+</script>

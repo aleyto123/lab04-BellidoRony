@@ -1,16 +1,90 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <h1>Bienvenido a la Página de Inicio</h1>
-    <a href="/about">Ir a Acerca de</a>
-    <a href="/contact">Formulario de Contacto</a>
-    <a href="/admin">Panel de Administración</a>
-    <a href="/marvel">Personajes Marvel (Libre Criterio)</a>
-</body>
-</html>
+<%- include('partials/header', { title: 'Inicio - Marvel Universe DB', url: '/' }) %>
+<%- include('partials/navbar', { url: '/' }) %>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge">UNIVERSE DATABASE 2026</span>
+            <h1 class="hero-title">MARVEL UNIVERSE</h1>
+            <p class="hero-subtitle">Plataforma moderna de gestión de personajes, historias y recursos del universo Marvel construida con tecnología Node.js</p>
+            <p style="margin-top: 2rem;">
+                <a href="#dashboard" class="btn btn-primary">
+                    <span>&darr;</span> Explorar
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="section" id="dashboard">
+        <div class="container">
+            <div class="section-title">
+                <h2>Accesos Rápidos</h2>
+            </div>
+            <div class="dashboard-grid">
+                <!-- Acerca de -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="info"></i></div>
+                    <h3 class="card-title">Acerca de Nosotros</h3>
+                    <p class="card-text">Conoce la arquitectura, tecnología y misión detrás de esta plataforma moderna de gestión del universo Marvel.</p>
+                    <a href="/about" class="card-link">Leer más →</a>
+                </div>
+
+                <!-- Contacto -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="mail"></i></div>
+                    <h3 class="card-title">Ponerse en Contacto</h3>
+                    <p class="card-text">¿Tienes preguntas, sugerencias o comentarios? Nos encantaría escucharte. Envíanos un mensaje.</p>
+                    <a href="/contact" class="card-link">Contactar →</a>
+                </div>
+
+                <!-- Administración -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="shield"></i></div>
+                    <h3 class="card-title">Panel Administrativo</h3>
+                    <p class="card-text">Accede al panel de administración para gestionar mensajes, usuarios y contenido de la plataforma.</p>
+                    <a href="/admin" class="card-link">Administrar →</a>
+                </div>
+
+                <!-- Marvel -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="zap"></i></div>
+                    <h3 class="card-title">Base de Datos Marvel</h3>
+                    <p class="card-text">Registra, visualiza y gestiona personajes del universo Marvel. Crea tu propia lista de superhéroes y villanos.</p>
+                    <a href="/marvel" class="card-link">Explorar Personajes →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section" style="background: linear-gradient(135deg, rgba(230, 36, 41, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 0.5rem;">∞</h3>
+                    <p style="color: var(--text-muted);">Universos Infinitos</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; color: var(--accent-red); margin-bottom: 0.5rem;">⚡</h3>
+                    <p style="color: var(--text-muted);">Servidor Activo 24/7</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 0.5rem;">🚀</h3>
+                    <p style="color: var(--text-muted);">Express.js & Node.js</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; color: var(--accent-red); margin-bottom: 0.5rem;">🎨</h3>
+                    <p style="color: var(--text-muted);">Diseño Moderno 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+
+<script>
+    lucide.createIcons();
+</script>

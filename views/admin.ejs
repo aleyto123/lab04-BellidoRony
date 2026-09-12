@@ -1,25 +1,101 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Admin</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-</head>
-<body class="container">
-  <h3 class="center-align">Mensajes recibidos</h3>
-  <a href="/contact" class="waves-effect waves-light btn">Ir al formulario</a>
-  <% if (messages.length === 0) { %>
-    <p>No hay mensajes aún.</p>
-  <% } else { %>
-    <ul class="collection">
-      <% messages.forEach(m => { %>
-        <li class="collection-item">
-          <strong><%= m.nombre %></strong> (<%= m.email %>)<br>
-          <em><%= m.mensaje %></em>
-        </li>
-      <% }) %>
-    </ul>
-  <% } %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-</html>
+<%- include('partials/header', { title: 'Administración - Marvel Universe DB', url: '/admin' }) %>
+<%- include('partials/navbar', { url: '/admin' }) %>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Panel Administrativo</h1>
+            <p class="hero-subtitle">Gestiona y visualiza todos los mensajes de contacto recibidos</p>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <section class="section">
+        <div class="container">
+            <!-- Header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <div>
+                    <h2 style="margin: 0;">Mensajes Recibidos</h2>
+                    <p style="color: var(--text-muted); margin: 0.5rem 0 0 0;">Total: <strong style="color: var(--accent-gold);"><%= messages.length %></strong> mensajes</p>
+                </div>
+                <a href="/" class="btn btn-secondary">
+                    <i data-lucide="arrow-left"></i>
+                    Volver al Inicio
+                </a>
+            </div>
+
+            <!-- Mensajes -->
+            <% if (messages.length === 0) { %>
+                <!-- Empty State -->
+                <div class="empty-state">
+                    <div class="empty-state-icon">📭</div>
+                    <h3 class="empty-state-title">No hay mensajes aún</h3>
+                    <p class="empty-state-text">Parece que no has recibido mensajes. Los visitantes pueden enviar mensajes a través del formulario de contacto.</p>
+                    <a href="/contact" class="btn btn-primary">
+                        <i data-lucide="mail"></i>
+                        Ir a Formulario de Contacto
+                    </a>
+                </div>
+            <% } else { %>
+                <!-- Tabla de Mensajes -->
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Mensaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% messages.forEach((msg, index) => { %>
+                                <tr>
+                                    <td style="color: var(--accent-gold); font-weight: 600;"><%= index + 1 %></td>
+                                    <td><strong><%= msg.nombre %></strong></td>
+                                    <td><a href="mailto:<%= msg.email %>" style="color: var(--accent-gold);"><%= msg.email %></a></td>
+                                    <td style="max-width: 300px; white-space: normal;"><%= msg.mensaje.substring(0, 100) %><% if (msg.mensaje.length > 100) { %>...<% } %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tarjetas Alternativa para Móviles -->
+                <div style="display: none;" class="messages-cards" id="messagesCards" style="gap: 1.5rem;">
+                    <% messages.forEach((msg, index) => { %>
+                        <div class="card">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <span class="badge badge-gold">Mensaje <%= index + 1 %></span>
+                            </div>
+                            <h3 style="margin-bottom: 0.5rem; color: var(--text-main);"><%= msg.nombre %></h3>
+                            <p style="color: var(--accent-gold); margin-bottom: 1rem; font-size: 0.9rem;">
+                                <i data-lucide="mail" style="width: 16px; height: 16px; display: inline; margin-right: 4px;"></i>
+                                <a href="mailto:<%= msg.email %>"><%= msg.email %></a>
+                            </p>
+                            <p style="color: var(--text-light); border-top: 1px solid var(--border-color); padding-top: 1rem; margin: 0;">
+                                <%= msg.mensaje %>
+                            </p>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } %>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+
+<script>
+    lucide.createIcons();
+    
+    // Mostrar tarjetas en móviles
+    if (window.innerWidth < 768) {
+        const messagesCards = document.getElementById('messagesCards');
+        if (messagesCards) {
+            messagesCards.style.display = 'grid';
+            messagesCards.style.gridTemplateColumns = '1fr';
+        }
+    }
+</script>

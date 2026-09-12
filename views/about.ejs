@@ -1,15 +1,131 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <h1>Sobre Nosotros</h1>
-    <a href="/">Volver al Inicio</a>
-    <a href="/contact">Formulario de Contacto</a>
-    <a href="/admin">Panel de Administración</a>
-</body>
-</html>
+<%- include('partials/header', { title: 'Acerca de - Marvel Universe DB', url: '/about' }) %>
+<%- include('partials/navbar', { url: '/about' }) %>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Acerca de Nosotros</h1>
+            <p class="hero-subtitle">Conoce la historia, arquitectura y visión detrás de Marvel Universe Database</p>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <section class="section">
+        <div class="container">
+            <div class="two-column">
+                <!-- Misión -->
+                <div>
+                    <h2>📋 Nuestra Misión</h2>
+                    <p>Crear una plataforma moderna, intuitiva y escalable para la gestión y visualización de personajes del universo Marvel. Combinamos tecnología de punta con un diseño centrado en el usuario.</p>
+                    <p>Nuestro objetivo es proporcionar una experiencia de usuario excepcional mientras mantenemos el rendimiento y la confiabilidad como pilares fundamentales.</p>
+                </div>
+
+                <!-- Valores -->
+                <div>
+                    <h2>⭐ Nuestros Valores</h2>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 1rem; padding-left: 2rem;">
+                            <span style="color: var(--accent-gold); font-weight: bold;">→</span> <strong>Innovación:</strong> Adoptamos las últimas tecnologías web.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 2rem;">
+                            <span style="color: var(--accent-gold); font-weight: bold;">→</span> <strong>Calidad:</strong> Código limpio y bien estructurado.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 2rem;">
+                            <span style="color: var(--accent-gold); font-weight: bold;">→</span> <strong>Accesibilidad:</strong> Diseño inclusivo y responsivo.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 2rem;">
+                            <span style="color: var(--accent-gold); font-weight: bold;">→</span> <strong>Confiabilidad:</strong> Servidor siempre disponible.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arquitectura -->
+    <section class="section" style="background: linear-gradient(135deg, rgba(230, 36, 41, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-title">
+                <h2>⚙️ Stack Tecnológico</h2>
+            </div>
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🟩</div>
+                    <h3 class="card-title">Node.js</h3>
+                    <p class="card-text">Runtime de JavaScript multiplataforma que permite ejecutar JavaScript fuera del navegador.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                    <h3 class="card-title">Express.js</h3>
+                    <p class="card-text">Framework minimalista y flexible para construir aplicaciones web y APIs robustas.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
+                    <h3 class="card-title">EJS Templates</h3>
+                    <p class="card-text">Motor de plantillas simple y poderoso para renderizar HTML dinámico en el servidor.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                    <h3 class="card-title">CSS3 Moderno</h3>
+                    <p class="card-text">Estilos modernos con Grid, Flexbox, animaciones y glassmorphism para diseño contemporáneo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>✨ Características Principales</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="display: grid; gap: 1.5rem;">
+                    <div class="card">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="color: var(--accent-gold); font-weight: bold; font-size: 1.5rem;">✓</div>
+                            <div>
+                                <h3>Gestión de Personajes</h3>
+                                <p style="margin: 0.5rem 0 0 0;">Registra, visualiza y administra personajes del universo Marvel con información detallada.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="color: var(--accent-gold); font-weight: bold; font-size: 1.5rem;">✓</div>
+                            <div>
+                                <h3>Sistema de Formularios</h3>
+                                <p style="margin: 0.5rem 0 0 0;">Formularios modernos con validación visual y guardado de datos en memoria en tiempo real.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="color: var(--accent-gold); font-weight: bold; font-size: 1.5rem;">✓</div>
+                            <div>
+                                <h3>Diseño Responsivo</h3>
+                                <p style="margin: 0.5rem 0 0 0;">Interfaz que se adapta perfectamente a cualquier dispositivo: escritorio, tablet o móvil.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="color: var(--accent-gold); font-weight: bold; font-size: 1.5rem;">✓</div>
+                            <div>
+                                <h3>Animaciones Fluidas</h3>
+                                <p style="margin: 0.5rem 0 0 0;">Transiciones y animaciones CSS modernas que mejoran la experiencia del usuario.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+
+<script>
+    lucide.createIcons();
+</script>

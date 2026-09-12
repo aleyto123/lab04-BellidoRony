@@ -1,28 +1,109 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Contacto</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-</head>
-<body class="container">
-  <h3 class="center-align">Formulario de Contacto</h3>
-  <form action="/contact" method="POST">
-    <div class="input-field">
-      <input id="nombre" type="text" name="nombre" required>
-      <label for="nombre">Nombre</label>
-    </div>
-    <div class="input-field">
-      <input id="email" type="email" name="email" required>
-      <label for="email">Correo electrónico</label>
-    </div>
-    <div class="input-field">
-      <textarea id="mensaje" class="materialize-textarea" name="mensaje" required></textarea>
-      <label for="mensaje">Mensaje</label>
-    </div>
-    <button type="submit" class="waves-effect waves-light btn">Enviar</button>
-    <a href="/" class="waves-effect waves-light btn grey">Volver</a>
-  </form>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-</html>
+<%- include('partials/header', { title: 'Contacto - Marvel Universe DB', url: '/contact' }) %>
+<%- include('partials/navbar', { url: '/contact' }) %>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Ponte en Contacto</h1>
+            <p class="hero-subtitle">¿Tienes preguntas? ¡Nos encantaría escucharte! Completa el formulario y nos pondremos en contacto pronto.</p>
+        </div>
+    </section>
+
+    <!-- Formulario Section -->
+    <section class="section">
+        <div class="container" style="max-width: 600px;">
+            <div class="form-card">
+                <form action="/contact" method="POST" class="contact-form">
+                    <!-- Nombre -->
+                    <div class="form-group">
+                        <label for="nombre" class="form-label">
+                            <i data-lucide="user" style="width: 16px; height: 16px; display: inline; margin-right: 8px;"></i>
+                            Nombre
+                        </label>
+                        <input 
+                            type="text" 
+                            id="nombre" 
+                            name="nombre" 
+                            class="form-input" 
+                            placeholder="Tu nombre completo"
+                            required
+                        >
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i data-lucide="mail" style="width: 16px; height: 16px; display: inline; margin-right: 8px;"></i>
+                            Correo Electrónico
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input" 
+                            placeholder="tu@email.com"
+                            required
+                        >
+                    </div>
+
+                    <!-- Mensaje -->
+                    <div class="form-group">
+                        <label for="mensaje" class="form-label">
+                            <i data-lucide="message-square" style="width: 16px; height: 16px; display: inline; margin-right: 8px;"></i>
+                            Mensaje
+                        </label>
+                        <textarea 
+                            id="mensaje" 
+                            name="mensaje" 
+                            class="form-textarea" 
+                            placeholder="Escribe tu mensaje aquí..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <!-- Botones -->
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary" style="flex: 1;">
+                            <i data-lucide="send"></i>
+                            Enviar Mensaje
+                        </button>
+                        <a href="/" class="btn btn-secondary" style="flex: 1;">
+                            <i data-lucide="arrow-left"></i>
+                            Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="section" style="background: linear-gradient(135deg, rgba(230, 36, 41, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%); border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+                    <h3 style="color: var(--text-main);">Respuesta Rápida</h3>
+                    <p style="color: var(--text-muted);">Nos comprometemos a responder dentro de 24 horas.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
+                    <h3 style="color: var(--text-main);">Privacidad</h3>
+                    <p style="color: var(--text-muted);">Tus datos están seguros y nunca serán compartidos.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">💬</div>
+                    <h3 style="color: var(--text-main);">Atención</h3>
+                    <p style="color: var(--text-muted);">Equipo disponible para ayudarte en todo momento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+
+<script>
+    lucide.createIcons();
+</script>
