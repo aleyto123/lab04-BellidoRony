@@ -119,10 +119,7 @@
                             <p class="empty-state-text">Aún no hay personajes en la base de datos. ¡Registra el primero!</p>
                         </div>
                     <% } else { %>
-                        <!-- Grid de p style="color: var(--text-light); margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.5;">
-                                        <%= char.descripcion %>
-                                    </p>
-                                    <Tarjetas -->
+                        <!-- Grid de Tarjetas -->
                         <div style="display: grid; gap: 1rem;">
                             <% characters.forEach((char, index) => { %>
                                 <div class="card">
@@ -133,6 +130,9 @@
                                     <h3 style="color: var(--accent-red); margin-bottom: 0.25rem;"><%= char.nombre %></h3>
                                     <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem;">
                                         <em><%= char.nombreReal %></em>
+                                    </p>
+                                    <p style="color: var(--text-light); margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.5;">
+                                        <%= char.descripcion %>
                                     </p>
                                     <div style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
                                         <p style="margin: 0.5rem 0; color: var(--text-light); font-size: 0.9rem;">
