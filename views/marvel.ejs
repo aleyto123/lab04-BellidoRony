@@ -87,6 +87,18 @@
                             >
                         </div>
 
+                        <!-- Descripción -->
+                        <div class="form-group">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <textarea 
+                                id="descripcion" 
+                                name="descripcion" 
+                                class="form-textarea" 
+                                placeholder="Describe brevemente al personaje, sus características principales..."
+                                required
+                            ></textarea>
+                        </div>
+
                         <!-- Botón Submit -->
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
                             <i data-lucide="plus"></i>
@@ -107,7 +119,10 @@
                             <p class="empty-state-text">Aún no hay personajes en la base de datos. ¡Registra el primero!</p>
                         </div>
                     <% } else { %>
-                        <!-- Grid de Tarjetas -->
+                        <!-- Grid de p style="color: var(--text-light); margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.5;">
+                                        <%= char.descripcion %>
+                                    </p>
+                                    <Tarjetas -->
                         <div style="display: grid; gap: 1rem;">
                             <% characters.forEach((char, index) => { %>
                                 <div class="card">
